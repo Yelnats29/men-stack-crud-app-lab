@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+</head>
+<%- include('./partials/nav') %>
+<body>
+    <h1>Meet the Furry Family</h1>
+    <ul>
+      <% dogs.forEach(dog => { %>
+        <li><h3><a href="/dogs/<%= dog._id %>"><%= dog.name %></a></h3></li>
+      <% }); %>
+    </ul>
+  </body>
+</html>

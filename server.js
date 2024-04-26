@@ -44,9 +44,14 @@ app.post('/dogs', async (req, res) => {
 // READ - Retrieve All Fruit Data
 app.get("/dogs", async (req, res) => {
     const allDogs = await Dog.find();
-    res.send(allDogs);
+    res.render('allDogs.ejs', {dogs: allDogs});
   });
 
+  // Show Route
+  app.get("/dogs/:dogsId", async (req, res) => {
+    const foundDog = await Dog.findById(req.params.dogsId)
+    res.render('dogview.ejs', {dog: foundDog})
+});
 
 
 

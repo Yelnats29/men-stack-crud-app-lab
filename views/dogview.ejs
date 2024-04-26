@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%= dog.name %></title>
+  </head>
+  <%- include('./partials/nav') %>
+  <body>
+    <h1>🐾 Say Hello to <%= dog.name %> 🐾</h1>
+    
+    <% if (dog.isGentleAroundPeople) { %>
+        <p>I love being around people!</p>
+      <% } else { %>
+        <p>I'm nervous around the scary people!</p>
+      <% } %>
+      <% if (dog.isGentleAroundAnimals) { %>
+        <p>I cant't wait to play with my Doggie Family!</p>
+      <% } else { %>
+        <p>I'm not so great with the others!</p>
+      <% } %>
+  </body>
+</html>
