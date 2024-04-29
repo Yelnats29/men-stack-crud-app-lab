@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Edit a Dog</title>
+</head>
+<%- include('./partials/nav') %>
+<body>
+    <h1>Edit <%= dog.name %> 🐶</h1>
+    <form action="/dogs/<%= dog._id %>?_method=PUT" method="POST">
+
+
+        <div>
+            <label for="name">Name:</label>
+            <div><small>Any Updates Needed?</small>
+            </div>
+            <input type="text" name="name" value="<%= dog.name %>" id="name" />
+        </div>
+
+        <div>
+            <label for="age">Age:</label>
+            <div><small>Any Updates Needed?</small>
+            </div>
+            <input type="number" name="age" value="<%= dog.age %>" id="age" />
+        </div>
+
+        <div>
+            <label for="breed">Breed:</label>
+            <div><small>Any Updates Needed?</small>
+            </div>
+            <input type="text" name="breed" value="<%= dog.breed %>" id="breed" />
+        </div>
+
+        <div>
+            <label for="color">Color:</labelAny Updates Needed?>
+            <div><small>Any Updates Needed?</small>
+            </div>
+            <input type="text" name="color" value="<%= dog.color %>" id="color" />
+        </div>
+
+        <div>
+            <label for="weight">Weight:</label>
+            <div><small>Weight in pounds (lbs)</small>
+            </div>
+            <input type="text" name="weight" value="<%= dog.weight %>" id="weight" />
+        </div>
+
+        <div>
+            <label for="gender">Gender:</label>
+            <div><small>Any Updates Needed?</small>
+            </div>
+            <input type="text" name="gender" value="<%= dog.gender %>" id="gender" />
+        </div>
+
+
+        <div>
+            <label for="isGentleAroundPeople">Gentle with other People?</label>
+            <div><small>Select if "Yes"</small>
+            </div>
+            <input type="checkbox" name="isGentleAroundPeople" id="isGentleAroundPeople" 
+            <% if(dog.isGentleAroundPeople) { %>
+                checked
+                <% } %> />
+        </div>
+
+
+        <div>
+            <label for="isGentleAroundAnimals">Gentle with other Animals?</label>
+            <div><small>Select if "Yes"</small>
+            </div>
+            <input type="checkbox" name="isGentleAroundAnimals" id="isGentleAroundAnimals"
+            <% if(dog.isGentleAroundAnimals) { %>
+                checked
+                <% } %>/>
+        </div>
+
+
+        <div>
+            <label for="description">Comments:</label>
+            <div><small>Enter anything more you'd like to share here</small>
+            </div>
+
+            <textarea id="description" maxLength="300"></textarea>
+        </div>
+
+
+        <button type="submit">Update <%= dog.name %></button>
+
+    </form>
+</body>
+
+</html>
