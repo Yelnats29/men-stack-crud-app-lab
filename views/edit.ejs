@@ -8,7 +8,7 @@
 </head>
 <%- include('./partials/nav') %>
 <body>
-    <h1>Edit <%= dog.name %> 🐶</h1>
+    <h1>Edit <%= dog.name %></h1>
     <form action="/dogs/<%= dog._id %>?_method=PUT" method="POST">
 
 
@@ -24,6 +24,13 @@
             <div><small>Any Updates Needed?</small>
             </div>
             <input type="number" name="age" value="<%= dog.age %>" id="age" />
+        </div>
+
+        <div>
+            <label for="dateOfBirth">Date of Birth:</label>
+            <div>
+            </div>
+            <input type="date" name="dateOfBirth" id="dateOfBirth" />
         </div>
 
         <div>

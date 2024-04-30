@@ -5,10 +5,12 @@ const mongoose = require("mongoose");
 const Dog = require("./models/dog.js");
 const morgan = require("morgan");
 const methodOverride = require("method-override");
+const path = require("path");
 const app = express();
 app.use(express.urlencoded({ extended: false })); // This creates the req.body.
 app.use(morgan('dev'));
 app.use(methodOverride("_method"));
+app.use(express.static(path.join(__dirname, "backgrounds")));
 mongoose.connect(process.env.MONGODB_URI);
 mongoose.connection.on("connected", () => {
     console.log(`Connected to MongoDB ${mongoose.connection.name}.`);
@@ -57,13 +59,13 @@ app.get("/dogs/:dogsId", async (req, res) => {
     res.render('dogview.ejs', { dog: foundDog })
 });
 
-// Delete
+// Delete (button on dogview.ejs)
 app.delete("/dogs/:dogsId", async (req, res) => {
     await Dog.findByIdAndDelete(req.params.dogsId);
     res.redirect("/dogs")
 });
 
-// Edit
+// Edit (button on dogview.ejs)
 app.get("/dogs/:dogsId/edit", async (req, res) => {
     const foundDog = await Dog.findById(req.params.dogsId);
     res.render('edit.ejs', { dog: foundDog })
@@ -87,6 +89,6 @@ app.put("/dogs/:dogsId", async (req, res) => {
 
 
 
-app.listen(3000, () => {
-    console.log("Listening on port 3000");
+app.listen(3001, () => {
+    console.log("Listening on port 3001");
 });

@@ -8,7 +8,7 @@
 </head>
 <%- include('./partials/nav') %>
 <body>
-    <h1>Create An Entry! 🐶</h1>
+    <h1>Create An Entry!</h1>
     <form action="/dogs" method="POST">
 
 
@@ -24,6 +24,13 @@
             <div><small>required</small>
             </div>
             <input type="number" name="age" id="age" required />
+        </div>
+
+        <div>
+            <label for="dateOfBirth">Date of Birth:</label>
+            <div>
+            </div>
+            <input type="date" name="dateOfBirth" id="dateOfBirth" />
         </div>
 
         <div>
@@ -76,7 +83,7 @@
             <div><small>Enter anything more you'd like to share here</small>
             </div>
 
-            <textarea id="description" maxLength="300"></textarea>
+            <textarea id="description" name="description" maxLength="300"></textarea>
         </div>
 
 

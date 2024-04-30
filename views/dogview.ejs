@@ -7,7 +7,7 @@
   </head>
   <%- include('./partials/nav') %>
   <body>
-    <h1>🐾 Say Hello to <%= dog.name %> 🐾</h1>
+    <h1>Say Hello to <%= dog.name %></h1>
     
     <% if (dog.isGentleAroundPeople) { %>
         <p>I love being around people!</p>
@@ -19,6 +19,40 @@
       <% } else { %>
         <p>I'm not so great with the others!</p>
       <% } %>
+
+
+    <div>
+        <label for="age">Age: <%= dog.age %> </label>
+    </div>
+
+    <div>
+        <label for="dateOfBirth">Date of Birth: <%= dog.dateOfBirth %> </label>
+    </div>
+
+    <div>
+        <label for="breed">Breed: <%= dog.breed %> </label>
+    </div>
+
+    <div>
+        <label for="color">Color: <%= dog.color %> </label>
+    </div>
+
+    <div>
+        <label for="weight">Weight: <%= dog.weight %> <small>Weight in pounds (lbs)</small></label>
+    </div>
+
+    <div>
+        <label for="gender">Gender: <%= dog.gender %> </label>
+    </div>
+
+
+
+    <div>
+        <label for="description">Comments: <%= dog.description %></label>
+    </div>
+
+
+
       <form action="/dogs/<%= dog._id %>?_method=DELETE" method="POST">
         <button type="submit">Delete <%= dog.name %></button>
     </form>
