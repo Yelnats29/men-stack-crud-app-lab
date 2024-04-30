@@ -10,7 +10,7 @@ const app = express();
 app.use(express.urlencoded({ extended: false })); // This creates the req.body.
 app.use(morgan('dev'));
 app.use(methodOverride("_method"));
-app.use(express.static(path.join(__dirname, "backgrounds")));
+app.use(express.static(path.join(__dirname, "public")));
 mongoose.connect(process.env.MONGODB_URI);
 mongoose.connection.on("connected", () => {
     console.log(`Connected to MongoDB ${mongoose.connection.name}.`);
